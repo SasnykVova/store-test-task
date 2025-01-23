@@ -1,0 +1,27 @@
+@use './base';
+
+html,
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 80px;
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+.footer {
+    height: 150px;
+}

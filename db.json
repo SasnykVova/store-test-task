@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "imageUrl": "https://maxstep.ua/image/cache/catalog/product/9bc3e3d1-daa9-11ed-896d-d89ef32cc452_861b2e03-fc88-11ed-8970-d89ef32cc452-550x550.jpeg",
+      "name": "Кросівки New Balance",
+      "count": 10,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "200g",
+      "comments": [
+        {
+          "id": 1,
+          "productId": 1,
+          "description": "Great product!",
+          "date": "12:00 01.01.2022"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "imageUrl": "https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/642ffbe3132e5-6389105.jpeg",
+      "name": "Кросівки Nike",
+      "count": 10,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "200g",
+      "comments": [
+        {
+          "id": 1,
+          "productId": 1,
+          "description": "Great product!",
+          "date": "12:00 01.01.2022"
+        }
+      ]
+    },
+    {
+      "id": "3fda",
+      "name": "Кросівки Adidas",
+      "imageUrl": "https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/6527fe4bcf2c3-6389105.jpeg",
+      "count": 15,
+      "width": 40,
+      "height": 20,
+      "weight": "200"
+    },
+    {
+      "id": "d1dc",
+      "name": "Кросівки Adidas",
+      "imageUrl": "https://monoad.ua/images/product/534x534/51870813_Superstar-Cloud-White-Core-Black_534x534.jpg",
+      "count": 6,
+      "width": 15,
+      "height": 10,
+      "weight": "300"
+    }
+  ]
+}

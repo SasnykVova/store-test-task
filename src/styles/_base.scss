@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*=====================================================================*/
+
+@media (min-width: 576px) {
+
+    body {
+        font-size: 0.93rem;
+    }
+}
+
+@media (min-width: 768px) {
+
+    body {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 992px) {
+
+    body {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    body {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    body {
+        font-size: 1.4rem;
+    }
+}
