@@ -35,6 +35,7 @@ const AddProduct: React.FC = () => {
       dispatch(actions.resetProduct())
     }
   };
+  console.log(count, width, height);
 
   useEffect(() => {
     if(success) {
@@ -42,6 +43,9 @@ const AddProduct: React.FC = () => {
       dispatch(actions.setAddProductSuccess())
     }
   }, [success])
+  useEffect(() => {
+
+  }, [count, width, height])
 
   return (
     <div className={styles.addProduct}>
@@ -65,21 +69,21 @@ const AddProduct: React.FC = () => {
           id="outlined-basic"
           label="Count"
           variant="outlined"
-          value={count}
+          value={count !== null ? count : ""}
           onChange={(e) => dispatch(actions.setCount(Number(e.target.value)))}
         />
         <TextField
           id="outlined-basic"
           label="Width"
           variant="outlined"
-          value={width}
+          value={width !== null ? width : ""}
           onChange={(e) => dispatch(actions.setWidth(Number(e.target.value)))}
         />
         <TextField
           id="outlined-basic"
           label="Height"
           variant="outlined"
-          value={height}
+          value={height !== null ? height : ""}
           onChange={(e) => dispatch(actions.setHeight(Number(e.target.value)))}
         />
         <TextField

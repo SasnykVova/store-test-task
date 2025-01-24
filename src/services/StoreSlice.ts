@@ -24,8 +24,13 @@ const initialState: InitialState = {
         },
         weight: '',
         comments: []
+    },
+    deleteProduct: {
+        loading: false,
+        success: false,
+        error: null,
+        modalOpen: false
     }
-
 }
 
 export const getProducts = createAsyncThunk<
@@ -61,6 +66,22 @@ AddProduct,
     }
 )
 
+export const deleteProduct = createAsyncThunk<
+void, 
+String | Number, 
+{ rejectValue: string } 
+>(
+    'store/deleteProduct',
+    async ( id, thunkApi) => {
+        try {
+            await $api.delete(`/products/${id}`);
+            thunkApi.dispatch(getProducts())
+        } catch (e) {
+            return thunkApi.rejectWithValue('Failed to delete product');
+        }
+    }
+)
+
 export const storeSlice = createSlice({
     name: 'store',
     initialState,
@@ -89,6 +110,9 @@ export const storeSlice = createSlice({
         }},
         setAddProductSuccess: (state) => {
             state.addProduct.success = false
+        },
+        setDeleteModal: (state, action) => {
+            state.deleteProduct.modalOpen = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -115,7 +139,18 @@ export const storeSlice = createSlice({
             .addCase(addProduct.rejected, (state, action) => {
                 state.addProduct.loading = false;
                 state.addProduct.error = action.error.message || "Unknown error occurred";
-            });
+            })
+            .addCase(deleteProduct.pending, (state) => {
+                state.deleteProduct.loading = true
+            })
+            .addCase(deleteProduct.fulfilled, (state) => {
+                state.deleteProduct.loading = false
+                state.deleteProduct.success = true
+                state.deleteProduct.modalOpen = false
+            })
+            .addCase(deleteProduct.rejected, (state) => {
+                state.deleteProduct.loading = false
+            })
     }
 
 })

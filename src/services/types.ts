@@ -39,6 +39,12 @@ export interface InitialState {
         size: Size
         weight: string
         comments: Comment[]
+    },
+    deleteProduct: {
+        loading: boolean
+        success: boolean
+        error: null | string
+        modalOpen: boolean
     }
 }
 export interface AddProduct {

@@ -20,7 +20,7 @@
       ]
     },
     {
-      "id": "1",
+      "id": "2",
       "imageUrl": "https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/642ffbe3132e5-6389105.jpeg",
       "name": "Кросівки Nike",
       "count": 10,
@@ -37,18 +37,6 @@
           "date": "12:00 01.01.2022"
         }
       ]
-    },
-    {
-      "id": "80df",
-      "imageUrl": "https://tapok.com.ua/products/0/10/39/74/103974/550209_middle_long.webp",
-      "name": "Кросівки Adidas",
-      "count": 14,
-      "size": {
-        "width": 12,
-        "height": 9
-      },
-      "weight": "368",
-      "comments": []
     }
   ]
 }
