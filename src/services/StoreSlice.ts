@@ -1,15 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import $api from "../api";
-import { InitialState, StoreState } from "./types";
+import { InitialState, AddProduct } from "./types";
 
-interface Product {
-    name: string;
-    imageUrl: string;
-    count: number | null;
-    width: number | null;
-    height: number | null;
-    weight: string;
-  }
   
 
 const initialState: InitialState = {
@@ -26,15 +18,18 @@ const initialState: InitialState = {
         name: '',
         imageUrl: '',
         count: null,
-        width: null,
-        height: null,
+        size: {
+            width: null,
+            height: null,
+        },
         weight: '',
+        comments: []
     }
 
 }
 
 export const getProducts = createAsyncThunk<
-    StoreState[],
+    AddProduct[],
     void,
     { rejectValue: string }
 >(
@@ -51,8 +46,8 @@ export const getProducts = createAsyncThunk<
 )
 
 export const addProduct = createAsyncThunk<
-StoreState, 
-Product, 
+AddProduct, 
+AddProduct, 
 { rejectValue: string } 
 >(
     'store/addProduct',
@@ -80,10 +75,10 @@ export const storeSlice = createSlice({
             state.addProduct.count = action.payload;
         },
         setWidth: (state, action: PayloadAction<number | null>) => {
-            state.addProduct.width = action.payload;
+            state.addProduct.size.width = action.payload;
         },
         setHeight: (state, action: PayloadAction<number | null>) => {
-            state.addProduct.height = action.payload;
+            state.addProduct.size.height = action.payload;
         },
         setWeight: (state, action: PayloadAction<string>) => {
             state.addProduct.weight = action.payload;
@@ -108,7 +103,7 @@ export const storeSlice = createSlice({
             })
             .addCase(getProducts.rejected, (state, action) => {
                 state.getProducts.loading = false
-                state.getProducts.error = action.payload || "Unknown error occurred";
+                state.getProducts.error = action.error.message || "Unknown error occurred";
             })
             .addCase(addProduct.pending, (state) => {
                 state.addProduct.loading = true; 
@@ -119,7 +114,7 @@ export const storeSlice = createSlice({
             })
             .addCase(addProduct.rejected, (state, action) => {
                 state.addProduct.loading = false;
-                state.addProduct.error = action.payload || "Failed to create product";
+                state.addProduct.error = action.error.message || "Unknown error occurred";
             });
     }
 

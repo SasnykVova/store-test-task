@@ -14,11 +14,13 @@ const AddProduct: React.FC = () => {
     name,
     imageUrl,
     count,
-    width,
-    height,
+    size,
     weight,
+    comments
   } = useAppSelector((state) => state.productPage.addProduct);
   const dispatch = useAppDispatch();
+
+  const { width, height } = size;
 
   const handleAddProduct = () => {
     if (
@@ -29,7 +31,7 @@ const AddProduct: React.FC = () => {
       height !== null &&
       weight
     ) {
-      dispatch(addProduct({ name, imageUrl, count, width, height, weight }));
+      dispatch(addProduct({imageUrl, name, count, size: { width: width, height: height}, weight, comments: [] }));
       dispatch(actions.resetProduct())
     }
   };

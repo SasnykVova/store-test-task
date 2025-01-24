@@ -39,22 +39,16 @@
       ]
     },
     {
-      "id": "3fda",
+      "id": "80df",
+      "imageUrl": "https://tapok.com.ua/products/0/10/39/74/103974/550209_middle_long.webp",
       "name": "Кросівки Adidas",
-      "imageUrl": "https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/6527fe4bcf2c3-6389105.jpeg",
-      "count": 15,
-      "width": 40,
-      "height": 20,
-      "weight": "200"
-    },
-    {
-      "id": "d1dc",
-      "name": "Кросівки Adidas",
-      "imageUrl": "https://monoad.ua/images/product/534x534/51870813_Superstar-Cloud-White-Core-Black_534x534.jpg",
-      "count": 6,
-      "width": 15,
-      "height": 10,
-      "weight": "300"
+      "count": 14,
+      "size": {
+        "width": 12,
+        "height": 9
+      },
+      "weight": "368",
+      "comments": []
     }
   ]
 }

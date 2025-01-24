@@ -12,8 +12,6 @@ const Store: React.FC = () => {
     const navigate = useNavigate();
 
 
-
-
     useEffect(() => {
         dispatch(getProducts())
     },[])
