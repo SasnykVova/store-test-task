@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import $api from "../api";
-import { InitialState, AddProduct } from "./types";
+import { InitialState, AddProduct, GetProducts } from "./types";
 
   
 
@@ -29,7 +29,7 @@ const initialState: InitialState = {
 }
 
 export const getProducts = createAsyncThunk<
-    AddProduct[],
+    GetProducts[],
     void,
     { rejectValue: string }
 >(

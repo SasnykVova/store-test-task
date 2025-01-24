@@ -10,7 +10,8 @@ interface Comments {
     date: string
 }
 
-export interface AddProduct {
+export interface GetProducts {
+    id: number
     imageUrl: string
     name: string
     count: number
@@ -19,11 +20,11 @@ export interface AddProduct {
     comments: Comments[]
 }
 export interface ProductData {
-    productData: AddProduct[]
+    productData: GetProducts[]
 }
 export interface InitialState {
     getProducts: {
-        productsData: AddProduct[]
+        productsData: GetProducts[]
         loading: boolean,
         success: boolean,
         error: null | string,
@@ -39,6 +40,14 @@ export interface InitialState {
         weight: string
         comments: Comment[]
     }
+}
+export interface AddProduct {
+    imageUrl: string
+    name: string
+    count: number
+    size: Size
+    weight: string
+    comments: Comments[]
 }
 
 interface Comment {
