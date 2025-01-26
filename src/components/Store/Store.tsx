@@ -25,6 +25,10 @@ const Store: React.FC = () => {
 
   const navigate = useNavigate();
 
+  const handleOpenProduct = (id: string | number) => {
+    navigate(`/products/${id}`)
+  }
+
   return (
     <div className={styles.store}>
       {modalOpen && (
@@ -59,6 +63,7 @@ const Store: React.FC = () => {
               imageUrl={imageUrl}
               name={name}
               onClick={handleModalOpen}
+              onOpenProduct={handleOpenProduct}
             />
           ))
         )}

@@ -1,3 +1,4 @@
+
 export interface Size {
     width: null | number
     height: null | number
@@ -45,6 +46,12 @@ export interface InitialState {
         success: boolean
         error: null | string
         modalOpen: boolean
+    },
+    getOne: {
+        data: GetOne
+        loading: boolean
+        success: boolean
+        error: null | string
     }
 }
 export interface AddProduct {
@@ -61,5 +68,15 @@ interface Comment {
     productId: null | number
     description: string
     date: string
+}
+
+export interface GetOne {
+    id: number | string
+    imageUrl: string
+    name: string
+    count: null | number
+    size: Size
+    weight: string
+    comments: Comments[]
 }
 

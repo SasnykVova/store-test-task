@@ -18,7 +18,8 @@ export const useStore = () => {
   const handleProductDelete = (id: String | Number) => {
     dispatch(deleteProduct(id));
   };
-  const handleModalOpen = (id: String | Number) => {
+  const handleModalOpen = (event: React.MouseEvent, id: String | Number) => {
+    event.stopPropagation();
     dispatch(actions.setDeleteModal(true));
     setDeleteProductId(id);
   };
@@ -39,6 +40,8 @@ export const useStore = () => {
           return b.count - a.count;
         case "count-asc":
           return a.count - b.count;
+        case 'def':
+          return 0
         default:
           return 0;
       }
