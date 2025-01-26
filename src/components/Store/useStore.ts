@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { actions, deleteProduct, getProducts } from "../../services/StoreSlice";
+import { SelectChangeEvent } from "@mui/material";
 
 export const useStore = () => {
   const { productsData, loading } = useAppSelector(
@@ -22,6 +23,27 @@ export const useStore = () => {
     setDeleteProductId(id);
   };
 
+  const [filter, setFilter] = useState<string>("");
+  
+    const handleChangeSelect = (event: SelectChangeEvent) => {
+      setFilter(event.target.value as string);
+    };
+
+    const sortedProducts = [...productsData].sort((a, b) => {
+      switch (filter) {
+        case "name-asc":
+          return a.name.localeCompare(b.name);
+        case "name-desc":
+          return b.name.localeCompare(a.name);
+        case "count-desc":
+          return b.count - a.count;
+        case "count-asc":
+          return a.count - b.count;
+        default:
+          return 0;
+      }
+    });
+
   useEffect(() => {
     dispatch(getProducts());
   }, []);
@@ -35,5 +57,8 @@ export const useStore = () => {
     deleteProductId,
     handleProductDelete,
     handleModalOpen,
+    filter,
+    handleChangeSelect,
+    sortedProducts
   };
 };

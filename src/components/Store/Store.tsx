@@ -1,15 +1,16 @@
 import React from "react";
 import styles from "./Store.module.scss";
 import { actions } from "../../services/StoreSlice";
-import { Button, CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Product from "./Product/Product";
 import ConfirmModal from "../ui/ConfirmModal/ConfirmModal";
 import { useStore } from "./useStore";
+import { Button, CircularProgress } from "@mui/material";
+import Select from "../ui/Select/Select";
+import { selectData } from "../../data/SelectData";
 
 const Store: React.FC = () => {
   const {
-    productsData,
     loading,
     modalOpen,
     loadingDelete,
@@ -17,6 +18,9 @@ const Store: React.FC = () => {
     dispatch,
     handleProductDelete,
     handleModalOpen,
+    filter,
+    handleChangeSelect,
+    sortedProducts,
   } = useStore();
 
   const navigate = useNavigate();
@@ -33,7 +37,12 @@ const Store: React.FC = () => {
       )}
       <h3>Store</h3>
       <div className={styles.filterBlock}>
-        <div>Filter</div>
+        <Select
+          label="Filter"
+          value={filter}
+          onChange={handleChangeSelect}
+          selectData={selectData}
+        />
         <Button variant="outlined" onClick={() => navigate("/addProduct")}>
           Add product
         </Button>
@@ -43,7 +52,7 @@ const Store: React.FC = () => {
         {loading ? (
           <CircularProgress />
         ) : (
-          productsData.map(({ id, imageUrl, name }) => (
+          sortedProducts.map(({ id, imageUrl, name }) => (
             <Product
               key={id}
               id={id}
