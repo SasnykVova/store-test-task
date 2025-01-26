@@ -6,13 +6,17 @@ interface ProductProps {
   id: string | number;
   imageUrl: string;
   name: string;
-  onClick: (id: string | number) => void;
+  onClick: (event: React.MouseEvent, id: string | number) => void;
+  onOpenProduct: (id: string | number) => void
 }
 
-const Product: React.FC<ProductProps> = ({ id, imageUrl, name, onClick }) => {
+const Product: React.FC<ProductProps> = ({ id, imageUrl, name, onClick, onOpenProduct }) => {
   return (
-    <div className={styles.product}>
-      <div className={styles.iconWrapper} onClick={() => onClick(id)}>
+    <div onClick={() => onOpenProduct(id)} className={styles.product}>
+      <div className={styles.iconWrapper} onClick={(event) => {
+        event.stopPropagation();
+        onClick(event, id)
+        }}>
         <DeleteIcon />
       </div>
       <div className={styles.imgWrapper}>

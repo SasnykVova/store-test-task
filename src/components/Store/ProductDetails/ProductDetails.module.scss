@@ -1,0 +1,48 @@
+.product {
+  .wrapper {
+    .detailsBlock {
+      display: flex;
+      gap: 4rem;
+      justify-content: center;
+      .imgWrapper {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .infoBlock {
+        color: grey;
+        .name {
+          font-size: 2rem;
+          font-weight: 700;
+          color: black;
+          padding-bottom: 2rem;
+        }
+      }
+    }
+    .commentsBlock {
+      margin-top: 2rem;
+      text-align: center;
+
+      .commentsWrapper {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .comment {
+        border-radius: 5px;
+        .date {
+          font-size: 1rem;
+          color: grey;
+        }
+      }
+    }
+  }
+}
