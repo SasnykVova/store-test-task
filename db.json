@@ -37,6 +37,18 @@
           "date": "12:00 01.01.2022"
         }
       ]
+    },
+    {
+      "id": "a173",
+      "imageUrl": "https://cdn.27.ua/799/f8/35/7075893_2.jpeg",
+      "name": "Кросівки Nike",
+      "count": 12,
+      "size": {
+        "width": 12,
+        "height": 11
+      },
+      "weight": "265",
+      "comments": []
     }
   ]
 }

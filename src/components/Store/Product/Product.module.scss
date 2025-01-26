@@ -1,0 +1,27 @@
+.product {
+  position: relative;
+
+  .iconWrapper {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.2rem;
+    background: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .imgWrapper {
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+  }
+  .name {
+    font-size: 1.1rem;
+  }
+}
